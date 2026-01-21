@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
               <p className="text-text-primary"><strong>Dott. Mauro Beneduce</strong></p>
               <p className="text-text-secondary">Commercialista</p>
               <p className="text-text-secondary">P.IVA: 04828461212</p>
-              <p className="text-text-secondary">Indirizzo: Piazza Cattaneo 11, Sant'Anastasia (NA) 80048</p>
+              <p className="text-text-secondary">Indirizzo: Piazza Cattaneo 11, Sant&apos;Anastasia (NA) 80048</p>
               <p className="text-text-secondary">Telefono: 388 608 4324</p>
               <p className="text-text-secondary">Email: studio.beneduce@gmail.com</p>
             </div>
@@ -125,22 +125,22 @@ export default function PrivacyPolicyPage() {
           {/* 8. Diritti dell'Interessato */}
           <section>
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-black mb-4">
-              8. Diritti dell'Interessato
+              8. Diritti dell&apos;Interessato
             </h2>
             <p className="text-text-secondary leading-relaxed mb-4">
               In qualità di interessato, hai diritto di:
             </p>
             <ul className="list-disc list-inside space-y-2 text-text-secondary">
-              <li><strong>Accesso:</strong> ottenere conferma dell'esistenza dei tuoi dati e riceverne copia</li>
+              <li><strong>Accesso:</strong> ottenere conferma dell&apos;esistenza dei tuoi dati e riceverne copia</li>
               <li><strong>Rettifica:</strong> ottenere la correzione dei dati inesatti</li>
-              <li><strong>Cancellazione:</strong> ottenere la cancellazione dei dati (diritto all'oblio)</li>
+              <li><strong>Cancellazione:</strong> ottenere la cancellazione dei dati (diritto all&apos;oblio)</li>
               <li><strong>Limitazione:</strong> ottenere la limitazione del trattamento</li>
               <li><strong>Portabilità:</strong> ricevere i dati in formato strutturato e trasmetterli ad altro titolare</li>
               <li><strong>Opposizione:</strong> opporti al trattamento dei tuoi dati</li>
               <li><strong>Revoca del consenso:</strong> revocare il consenso in qualsiasi momento</li>
             </ul>
             <p className="text-text-secondary leading-relaxed mt-4">
-              Per esercitare i tuoi diritti, contattaci all'indirizzo email: <strong>studio.beneduce@gmail.com</strong>
+              Per esercitare i tuoi diritti, contattaci all&apos;indirizzo email: <strong>studio.beneduce@gmail.com</strong>
             </p>
           </section>
 
@@ -150,7 +150,7 @@ export default function PrivacyPolicyPage() {
               9. Diritto di Reclamo
             </h2>
             <p className="text-text-secondary leading-relaxed">
-              Hai il diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (www.garanteprivacy.it) qualora ritenga che il trattamento dei tuoi dati personali violi il GDPR.
+              Hai il diritto di proporre reclamo all&apos;Autorità Garante per la Protezione dei Dati Personali (www.garanteprivacy.it) qualora ritenga che il trattamento dei tuoi dati personali violi il GDPR.
             </p>
           </section>
 

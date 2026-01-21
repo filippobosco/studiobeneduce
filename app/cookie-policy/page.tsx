@@ -30,7 +30,7 @@ export default function CookiePolicyPage() {
               Cosa sono i Cookie
             </h2>
             <p className="text-text-secondary leading-relaxed">
-              I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo (computer, tablet, smartphone) quando visiti un sito web. Vengono utilizzati per migliorare l'esperienza di navigazione, ricordare le preferenze dell'utente e raccogliere informazioni statistiche anonime.
+              I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo (computer, tablet, smartphone) quando visiti un sito web. Vengono utilizzati per migliorare l&apos;esperienza di navigazione, ricordare le preferenze dell&apos;utente e raccogliere informazioni statistiche anonime.
             </p>
           </section>
 
@@ -93,7 +93,7 @@ export default function CookiePolicyPage() {
                 3. Cookie di Marketing e Tracciamento
               </h3>
               <p className="text-text-secondary leading-relaxed mb-3">
-                Utilizziamo cookie di terze parti per monitorare l'efficacia delle nostre campagne pubblicitarie e per offrirti contenuti personalizzati.
+                Utilizziamo cookie di terze parti per monitorare l&apos;efficacia delle nostre campagne pubblicitarie e per offrirti contenuti personalizzati.
               </p>
               <div className="space-y-4">
                 <div>

@@ -76,7 +76,7 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <p className="text-text-secondary leading-relaxed mb-6 flex-grow italic">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
 
                 {/* Stars */}
@@ -126,7 +126,7 @@ export default function Testimonials() {
 
                     {/* Quote */}
                     <p className="text-text-secondary leading-relaxed mb-6 flex-grow italic">
-                      "{testimonials[currentIndex].quote}"
+                      &quot;{testimonials[currentIndex].quote}&quot;
                     </p>
 
                     {/* Stars */}

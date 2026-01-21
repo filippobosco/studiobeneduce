@@ -50,7 +50,7 @@ export default function AuthorityBuilder() {
             <p className="text-lg text-text-secondary mb-6 leading-relaxed">
               Non è solo esperienza sul campo: ho scritto e pubblicato su Amazon il manuale{' '}
               <span className="font-semibold text-text-primary">
-                "Aspetti Fiscali del Commercio Elettronico e Dropshipping - Edizione 2025"
+                &quot;Aspetti Fiscali del Commercio Elettronico e Dropshipping - Edizione 2025&quot;
               </span>
               , la guida di riferimento per chi vende online in Italia.
             </p>

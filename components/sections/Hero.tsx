@@ -33,7 +33,7 @@ export default function Hero() {
 
             {/* H2 - Più leggero e distinto */}
             <h2 className="text-xl md:text-2xl lg:text-3xl font-body font-normal text-text-secondary mb-10 md:mb-12 leading-relaxed">
-              Scopri l'affiancamento strategico che trasforma la burocrazia fiscale in{' '}
+              Scopri l&apos;affiancamento strategico che trasforma la burocrazia fiscale in{' '}
               <strong className="font-semibold text-text-primary">opportunità di crescita</strong> per la tua impresa.
             </h2>
 
