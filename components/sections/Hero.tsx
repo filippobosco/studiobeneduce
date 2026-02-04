@@ -62,7 +62,7 @@ export default function Hero() {
           >
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/images/Hero-image-2.png"
+                src="/images/hero-image.png"
                 alt="Professionista esperto in consulenza fiscale - Studio Beneduce"
                 className="w-full h-full object-cover"
                 style={{ imageRendering: 'crisp-edges' }}
