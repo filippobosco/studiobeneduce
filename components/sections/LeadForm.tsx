@@ -10,7 +10,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import Textarea from '@/components/ui/Textarea'
 import { leadFormSchema, type LeadFormData } from '@/lib/validations'
-import { trackFormStart, trackFormSubmit } from '@/lib/utils'
+import { trackFormSubmit } from '@/lib/utils'
 import { Check, Shield, Clock, Lock } from 'lucide-react'
 
 const businessTypeOptions = [
@@ -50,7 +50,6 @@ const benefits = [
 export default function LeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  const [hasStarted, setHasStarted] = useState(false)
 
   const {
     register,
@@ -60,13 +59,6 @@ export default function LeadForm() {
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
   })
-
-  const handleFormStart = () => {
-    if (!hasStarted) {
-      setHasStarted(true)
-      trackFormStart()
-    }
-  }
 
   const onSubmit = async (data: LeadFormData) => {
     setIsSubmitting(true)
@@ -156,7 +148,6 @@ export default function LeadForm() {
                   label="Nome e Cognome *"
                   placeholder="Es. Mario Rossi"
                   error={errors.name?.message}
-                  onFocus={handleFormStart}
                 />
 
                 <Input
@@ -166,7 +157,6 @@ export default function LeadForm() {
                   label="Email *"
                   placeholder="Es. mario.rossi@email.com"
                   error={errors.email?.message}
-                  onFocus={handleFormStart}
                 />
 
                 <Input
@@ -176,7 +166,6 @@ export default function LeadForm() {
                   label="Telefono *"
                   placeholder="Es. 333 1234567"
                   error={errors.phone?.message}
-                  onFocus={handleFormStart}
                 />
 
                 <Select
@@ -185,7 +174,6 @@ export default function LeadForm() {
                   label="Tipo di attività *"
                   options={businessTypeOptions}
                   error={errors.businessType?.message}
-                  onFocus={handleFormStart}
                 />
 
                 <Select
@@ -194,7 +182,6 @@ export default function LeadForm() {
                   label="Fatturato annuo indicativo *"
                   options={revenueOptions}
                   error={errors.revenue?.message}
-                  onFocus={handleFormStart}
                 />
 
                 <Textarea
@@ -202,7 +189,6 @@ export default function LeadForm() {
                   id="message"
                   label="Messaggio (opzionale)"
                   placeholder="Raccontami brevemente la tua situazione o le tue esigenze..."
-                  onFocus={handleFormStart}
                 />
 
                 {/* Privacy Checkbox */}

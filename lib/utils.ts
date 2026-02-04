@@ -27,10 +27,6 @@ export const trackCTAClick = (location: string) => {
   trackEvent('cta_click', { location })
 }
 
-export const trackFormStart = () => {
-  trackEvent('form_start', {})
-}
-
 export const trackFormSubmit = () => {
   trackEvent('form_submit', {})
   
@@ -45,8 +41,4 @@ export const trackFormSubmit = () => {
   if (typeof window !== 'undefined' && (window as any).fbq) {
     (window as any).fbq('track', 'Lead')
   }
-}
-
-export const trackSectionView = (sectionName: string) => {
-  trackEvent('section_view', { section: sectionName })
 }
