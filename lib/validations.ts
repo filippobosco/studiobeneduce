@@ -39,7 +39,11 @@ export const leadFormSchema = z.object({
   message: z.string()
     .max(1000, 'Il messaggio è troppo lungo')
     .optional(),
-  
+
+  source: z.string()
+    .max(200, 'Sorgente troppo lunga')
+    .optional(),
+
   privacy: z.boolean()
     .refine(val => val === true, {
       message: 'Devi accettare la privacy policy per continuare',

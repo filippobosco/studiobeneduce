@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Footer from '@/components/sections/Footer'
@@ -7,6 +8,13 @@ import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function GraziePage() {
+  // Meta Lead: evento conversioni quando l'utente vede la thank you page
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead')
+    }
+  }, [])
+
   return (
     <main className="min-h-screen flex flex-col">
       <div className="flex-1 flex items-center justify-center section-padding">

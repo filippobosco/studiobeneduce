@@ -63,11 +63,16 @@ export default function LeadForm() {
   const onSubmit = async (data: LeadFormData) => {
     setIsSubmitting(true)
 
+    const source =
+      typeof window !== 'undefined'
+        ? (sessionStorage.getItem('utm_source') || '')
+        : ''
+
     try {
       const response = await fetch('/api/submit-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, source }),
       })
 
       if (response.ok) {

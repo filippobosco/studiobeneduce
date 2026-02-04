@@ -28,17 +28,15 @@ export const trackCTAClick = (location: string) => {
 }
 
 export const trackFormSubmit = () => {
-  trackEvent('form_submit', {})
-  
+  // Solo GA: form_submit (Meta Lead viene inviato sulla thank you page)
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'form_submit', {})
+  }
+
   // LinkedIn conversion
   if (typeof window !== 'undefined' && (window as any)._linkedin_data_partner_ids) {
     (window as any)._linkedin_data_partner_ids.push({
       conversionId: 'YOUR_CONVERSION_ID'
     })
-  }
-
-  // Meta Lead event
-  if (typeof window !== 'undefined' && (window as any).fbq) {
-    (window as any).fbq('track', 'Lead')
   }
 }

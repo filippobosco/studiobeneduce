@@ -8,21 +8,30 @@ export async function POST(request: NextRequest) {
     // Validate data
     const validatedData = leadFormSchema.parse(body)
 
-    // TODO: Send to Google Sheets or your preferred destination
-    // For now, just log it
-    console.log('Form submission:', validatedData)
-
-    // In production, you would send this to:
-    // - Google Sheets via Apps Script
-    // - A CRM
-    // - Email notification service (Resend, SendGrid, etc.)
-    
-    // Example: Send to Google Apps Script
-    // const response = await fetch(process.env.NEXT_PUBLIC_FORM_ENDPOINT!, {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(validatedData),
-    // })
+    // Invia a Google Sheets se è configurato l'endpoint (Google Apps Script)
+    const formEndpoint = process.env.FORM_ENDPOINT
+    if (formEndpoint) {
+      try {
+        const response = await fetch(formEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(validatedData),
+        })
+        if (!response.ok) {
+          console.error('Google Sheets endpoint error:', response.status, await response.text())
+          return NextResponse.json(
+            { success: false, message: 'Errore durante il salvataggio. Riprova.' },
+            { status: 502 }
+          )
+        }
+      } catch (err) {
+        console.error('Form endpoint fetch error:', err)
+        return NextResponse.json(
+          { success: false, message: 'Errore di connessione. Riprova.' },
+          { status: 502 }
+        )
+      }
+    }
 
     return NextResponse.json(
       { success: true, message: 'Form submitted successfully' },

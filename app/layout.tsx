@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
+import UtmCapture from '@/components/UtmCapture'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -95,6 +96,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <UtmCapture />
         {children}
         <Toaster
           position="top-center"

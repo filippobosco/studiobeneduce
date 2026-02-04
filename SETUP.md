@@ -36,17 +36,19 @@ Apri [http://localhost:3000](http://localhost:3000) nel browser.
 
 ### Opzione 1: Google Sheets (Consigliato per MVP)
 
-1. Crea un nuovo Google Sheet
+1. Crea un nuovo Google Sheet. Rinomina il primo tab in **Consulenza Gratuita** e nella prima riga inserisci le intestazioni: **DATA DI CREAZIONE** | **NOME E COGNOME** | **EMAIL** | **TELEFONO** | **TIPO DI ATTIVITÀ** | **FATTURATO** | **MESSAGGIO** | **SORGENTE**
 2. Vai su **Extensions > Apps Script**
 3. Incolla questo codice:
 
 ```javascript
 function doPost(e) {
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    // Usa il foglio "Consulenza Gratuita" (nome del tab nel Google Sheet)
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Consulenza Gratuita');
+    if (!sheet) throw new Error('Foglio "Consulenza Gratuita" non trovato');
     const data = JSON.parse(e.postData.contents);
-    
-    // Aggiungi riga con timestamp
+
+    // Ordine colonne: DATA DI CREAZIONE | NOME E COGNOME | EMAIL | TELEFONO | TIPO DI ATTIVITÀ | FATTURATO | MESSAGGIO | SORGENTE
     sheet.appendRow([
       new Date(),
       data.name,
@@ -54,7 +56,8 @@ function doPost(e) {
       data.phone,
       data.businessType,
       data.revenue,
-      data.message || ''
+      data.message || '',
+      data.source || ''
     ]);
     
     // Rispondi con successo
@@ -75,8 +78,8 @@ function doPost(e) {
 6. Imposta:
    - Execute as: **Me**
    - Who has access: **Anyone**
-7. Copia l'URL generato
-8. Incollalo in `.env.local` come `NEXT_PUBLIC_FORM_ENDPOINT`
+7. Copia l'URL generato (es. `https://script.google.com/macros/s/xxxxx/exec`)
+8. In `.env.local` aggiungi: `FORM_ENDPOINT=https://script.google.com/macros/s/TUO_SCRIPT_ID/exec`
 
 ### Opzione 2: Email con Resend
 
