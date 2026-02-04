@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -48,14 +49,13 @@ const benefits = [
 ]
 
 export default function LeadForm() {
+  const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
   })
@@ -72,9 +72,8 @@ export default function LeadForm() {
 
       if (response.ok) {
         trackFormSubmit()
-        setIsSuccess(true)
-        toast.success('Richiesta inviata con successo!')
-        reset()
+        router.push('/grazie')
+        return
       } else {
         const errorData = await response.json()
         toast.error(errorData.message || 'Errore durante l\'invio. Riprova.')
@@ -127,21 +126,7 @@ export default function LeadForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            {isSuccess ? (
-              <div className="bg-success/10 border-2 border-success rounded-xl p-8 text-center">
-                <div className="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8 text-white" strokeWidth={3} />
-                </div>
-                <h3 className="text-2xl font-semibold text-black mb-3">
-                  Grazie per la tua richiesta!
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  Ho ricevuto la tua richiesta. Ti ricontatterò entro 24 ore per fissare la consulenza gratuita. 
-                  Controlla anche la casella spam, per sicurezza.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <Input
                   {...register('name')}
                   id="name"
@@ -220,7 +205,6 @@ export default function LeadForm() {
                   {isSubmitting ? 'Invio in corso...' : 'Prenota la consulenza gratuita'}
                 </Button>
               </form>
-            )}
           </motion.div>
 
           {/* Trust Elements */}
