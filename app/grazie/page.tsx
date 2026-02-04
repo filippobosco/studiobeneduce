@@ -5,14 +5,12 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Footer from '@/components/sections/Footer'
 import { Check } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, trackThankYouPageView } from '@/lib/utils'
 
 export default function GraziePage() {
-  // Meta Lead: evento conversioni quando l'utente vede la thank you page
+  // Evento visualizzazione thank you page → Meta Lead (conversioni)
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Lead')
-    }
+    trackThankYouPageView()
   }, [])
 
   return (

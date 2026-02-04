@@ -40,3 +40,16 @@ export const trackFormSubmit = () => {
     })
   }
 }
+
+/** Evento Lead Meta quando l'utente vede la thank you page (visualizzazione /grazie) */
+export const trackThankYouPageView = () => {
+  if (typeof window === 'undefined') return
+  const sendLead = () => {
+    if ((window as any).fbq) {
+      (window as any).fbq('track', 'Lead')
+    }
+  }
+  sendLead()
+  // Se il pixel non è ancora caricato, riprova dopo un breve delay (SPA / hydration)
+  setTimeout(sendLead, 300)
+}
